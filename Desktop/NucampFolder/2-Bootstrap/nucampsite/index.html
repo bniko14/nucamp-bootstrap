@@ -30,14 +30,83 @@
                     <h1>NuCamp</h1>
                     <h2>a better way to camp</h2>
                 </div>
-                <!-- Create a button which one clicked will take you somewhere else on the page -->
+                <!-- Task 1-->
                 <div class="col col-md-4 col-xl-2">
-                    <a role="button" class="btn btn-lg btn-info" href="#reserveForm" data-toggle="tooltip" 
-                    data-placement="bottom" data-html="true" title="Or call us at <br /><strong>1-206-555-1234</strong>">Reserve a Campsite</a>
+                    <a role="button" class="btn btn-lg btn-info" data-toggle="modal" data-target="#reserveModal">Reserve a Campsite</a>
                 </div>
             </div>
         </div>
     </header>
+
+<!-- Create a new modal div with id="reserveModal" -->
+<div id="reserveModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-info text-white">
+                <h3 class="modal-title">Reserve a Campsite</h3>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <form id="reserveForm">
+
+                        <!-- Add Number of Campers title-->
+                        <div class="row form-group">
+                            <label class="col-sm-6 col-form label" for="numCampers">Number of Campers</label>
+                            <!-- Select the number of campers-->
+                            <div class="col">
+                                <select class="form-control" name="numCampers" id="numCampers">
+                                    <option selected>Select</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                            </div>
+                        </div> 
+
+                        <!-- Add a Date title -->
+                        <div class="form-group row">
+                            <label for="date" class="col-sm-6 col-form-label"> Date</label>
+                            <!-- Add a date input -->
+                            <div class="col">
+                                <input class="form-control" type="date" id="date" name="date" placeholder="mm/dd/yy"/>
+                            </div>
+                        </div>
+
+                        <!-- Add Campsite Type label in row below Date-->
+                        <div class="form-group row">
+                            <label class="col-sm-6 col-form-label">Campsite Type</label>
+                             <!-- Add radio button group, choose between Tent and RV Campsites-->
+                            <div class="col">
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-success active">
+                                        <input type="radio" name="siteType" id="tent" autocomplete="off" checked> Tent
+                                    </label>
+                                    <label class="btn btn-primary active">
+                                        <input type="radio" name="siteType" id="RV" autocomplete="off" checked> RV
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Add a Cancel and Search button-->
+                        <div class="row">
+                            <div class="col">
+                                <button data-dismiss="modal" class="btn btn-secondary"> Cancel </button>
+                                <button type="submit" class="btn btn-primary">Search</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
     <nav class= "navbar navbar-expand-sm navbar-dark sticky-top">
         <div class = "container">
@@ -209,39 +278,40 @@
         </div>
 
     </div>
+    
 
-    <!-- Create a Reserve a Campsite Form-->
-    <div class = "row row-content align-items-center">
-        <div class="col-sm-6 mx-auto">
+    <!-- Create a Reserve a Campsite Form
+    <div class = "row row-content align-items-center"> -->
+        <!-- <div class="col-sm-6 mx-auto">
             <div class="card">
                 <h3 class="card-header bg-info text-white"> Reserve a Campsite</h3>
                 <div class="card-body">
                     <form id="reserveForm">
                         <!-- Add a Number of Campers label with select options 1-6 -->
-                        <div class="form-group row">
+                        <!-- <div class="form-group row">
                             <label for="numCampers" class="col-sm-6 col-form-label"
                             >Number of Campers</label>
                             <div class="col">
                                 <select class="form-control" name="numCampers" id="numCampers">
                                     <option selected>Select</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
+                                    <option value="1">1</option> -->
+                                    <!-- <option value="2">2</option>
                                     <option value="3">3</option>
                                     <option value="4">4</option>
                                     <option value="5">5</option>
                                     <option value="6">6</option>
                                 </select>
                             </div>
-                        </div> 
+                        </div>  -->
                         <!-- Add a Date with placeholder value -->
-                        <div class="row form-group">
+                        <!-- <div class="row form-group">
                             <label for="date" class="col-sm-6 col-form-label"> Date</label>
                             <div class="col col-sm-6">
                                 <input class="form-control" type="date" id="date" name="date" placeholder="mm/dd/yy"/>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- Add a Reserve button type submit -->
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col">
                                 <button type="submit" class="btn btn-primary"> Reserve </button>
                             </div>
@@ -251,7 +321,8 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
+     
 
     <!-- Footer -->
     <footer class = "site-footer">
@@ -286,12 +357,6 @@
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
-    <script>
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
-    </script>
 
 
 </body>
